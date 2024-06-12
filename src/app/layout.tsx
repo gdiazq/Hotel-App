@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import type { Metadata } from "next";
 import { Onest } from "next/font/google";
+import { Providers } from "@/app/providers";
 import "./globals.css";
 
 const onest = Onest({ subsets: ["latin"] });
@@ -18,11 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={onest.className}>
-        <Header />
-        <main>
-          {children}
-        </main>
-        {/* ?Footer */}
+        <Providers>
+          <Header />
+            <main>
+              {children}
+            </main>
+          {/* ?Footer */}
+        </Providers>
       </body>
     </html>
   );
