@@ -11,11 +11,8 @@ export const metadata: Metadata = {
   description: "Discover the best rooms available in the best hotels around the world",
 };
 
-export default function RootLayout({
-  children, }: Readonly<{
-  children: React.ReactNode;
-  }>
-) {
+export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode;}>) 
+{
   return (
     <html lang="en">
       <body className={onest.className}>
