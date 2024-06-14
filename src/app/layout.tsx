@@ -18,9 +18,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       <body className={onest.className}>
         <Providers>
           <Header />
-            <main>
               {children}
-            </main>
           {/* ?Footer */}
         </Providers>
       </body>

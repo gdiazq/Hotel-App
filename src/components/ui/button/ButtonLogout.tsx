@@ -4,14 +4,14 @@ import React from "react";
 import {Button} from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 
-const ButtonLogin = () => {
+const ButtonLogout = () => {
     const router = useRouter();
     
     return (
-        <Button className="bg-blue-700 text-white" onClick={ () => router.push('/signin')}>
-            Sign In
+        <Button className="bg-red-700 text-white" onClick={ () => router.push('/')}>
+            Logout
         </Button>
     );
 }
 
-export default ButtonLogin;
+export default ButtonLogout;

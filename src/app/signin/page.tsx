@@ -1,7 +1,7 @@
 const DashboardLogin = () => {
   return (
     <div>
-      <h1>Dashboard Login Page!</h1>
+      <h1 className="text-black dark:text-white">Dashboard Login Page!</h1>
     </div>
   );
 }

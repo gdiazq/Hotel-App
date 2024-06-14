@@ -1,5 +1,9 @@
 export default function Home() {
   return (
-      <h1 className="text-black dark:text-white">Home</h1>
+    <main className="p-4">
+      <h1 className="text-black dark:text-white">
+        Home
+      </h1>
+    </main>
   );
 }

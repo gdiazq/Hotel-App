@@ -8,10 +8,6 @@
   box-sizing: border-box;
 }
 
-html {
-  padding: 1rem;
-}
-
 body {
   display: flex;
   flex-direction: column;
