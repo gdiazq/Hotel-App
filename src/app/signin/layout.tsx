@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const LayoutSignUp = ({ children, }: { children: React.ReactNode;}) => {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning lang="en">
       <body className={onest.className}>
           {children}
       </body>
