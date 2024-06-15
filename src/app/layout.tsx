@@ -14,11 +14,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode;}>) 
 {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html lang="en">
       <body className={onest.className}>
         <Providers>
-          <Header />
-              {children}
+            {children}
           {/* ?Footer */}
         </Providers>
       </body>
