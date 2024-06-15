@@ -1,21 +1,16 @@
-import type { Metadata } from "next";
 import { Onest } from "next/font/google";
+import SignIn from "./page";
 
 const onest = Onest({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Sign Up Page by Guillermo Diaz",
-  description: "Sign Up Page for Hotel Managment App by Guillermo Diaz",
-};
-
-const LayoutSignUp = ({ children, }: { children: React.ReactNode;}) => {
+const LayoutSignIn = ({ children } : { children: React.ReactNode;}) => {
   return (
     <html suppressHydrationWarning lang="en">
       <body className={onest.className}>
-          {children}
+        <SignIn />
       </body>
     </html>
   );
 }
 
-export default LayoutSignUp
+export default LayoutSignIn
