@@ -1,11 +1,6 @@
 'use client'
 
-import { Button } from "@nextui-org/react";
 import { LoginButton } from '@/components/ui/auth/LoginButton';
-
-const messageClick = () => {
-    console.log("Login Button Clicked");
-}
 
 const SignIn = () => {
     return (
@@ -18,11 +13,7 @@ const SignIn = () => {
                     A simple authentication page
                 </p>
                 <div>
-                    <LoginButton>
-                        <Button onClick={messageClick} className="text-lg bg-white">
-                            Sign In
-                        </Button>
-                    </LoginButton>
+                    <LoginButton />
                 </div>
             </div>
         </main>

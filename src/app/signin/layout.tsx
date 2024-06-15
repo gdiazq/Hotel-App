@@ -5,11 +5,9 @@ const onest = Onest({ subsets: ["latin"] });
 
 const LayoutSignIn = ({ children } : { children: React.ReactNode;}) => {
   return (
-    <html suppressHydrationWarning lang="en">
-      <body className={onest.className}>
-        <SignIn />
-      </body>
-    </html>
+    <div className={onest.className}>
+      <SignIn />
+    </div>
   );
 }
 
