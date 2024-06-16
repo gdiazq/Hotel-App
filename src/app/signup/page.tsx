@@ -1,9 +1,9 @@
 "use client";
 
 import { RegisterButton } from '@/components/ui/auth/RegisterButton';
-import  FormEmail from '@/components/ui/forms/FormEmail';
-import FormPassword from '@/components/ui/forms/FormPassword/FormPassword';
-import FormRepeatPassword from '@/components/ui/forms/FormPassword/FormRepeatPassword';
+import  FormEmail from '@/components/ui/input/InputEmail';
+import FormPassword from '@/components/ui/input/InputPassword/InputPassword';
+import FormRepeatPassword from '@/components/ui/input/InputPassword/InputRepeatPassword';
 import ButtonGoogle from '@/components/ui/button/ButtonGoogle';
 import ButtonFacebook from '@/components/ui/button/ButtonFacebook';
 import ButtonGithub from '@/components/ui/button/ButtonGithub';
@@ -19,10 +19,12 @@ const SignUp = () => {
           Sign in.</a>
         </p>
         <div>
-          <FormEmail />
-          <FormPassword />
-          <FormRepeatPassword />
-          <RegisterButton />
+          <form>
+            <FormEmail />
+            <FormPassword />
+            <FormRepeatPassword />
+            <RegisterButton />
+          </form>
         </div>
         <p className="text-xs text-white">Or with</p>
         <div className="flex flex-row gap-x-4">
