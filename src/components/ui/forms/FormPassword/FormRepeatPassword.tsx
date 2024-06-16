@@ -23,7 +23,7 @@ export default function FormRepeatPassword() {
         </button>
       }
       type={isVisible ? "text" : "password"}
-      className="max-w-xs pb-6"
+      className="max-w-xs pb-6 mx-auto"
     />
   );
 }

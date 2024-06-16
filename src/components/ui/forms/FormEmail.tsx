@@ -8,7 +8,7 @@ export default function FormEmail() {
       type="email"
       label="Email"
       placeholder="email@example.com"
-      className="max-w-xs pb-4"
+      className="max-w-xs pb-4 mx-auto"
     />
   );
 }
