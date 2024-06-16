@@ -19,6 +19,21 @@ const SignIn = () => {
                     <FormPassword />
                     <LoginButton />
                 </div>
+                <p className="text-xs">Or with</p>
+                <div className="flex flex-row gap-x-4">
+                    <form action="/api/auth/google" method="POST">
+                        <input type="hidden" name="auth-google" value="google" />
+                        <button className="bg-[#DB4437] text-white px-4 py-2 rounded-md">Google</button>
+                    </form>
+                    <form action="/api/auth/facebook" method="POST">
+                        <input type="hidden" name="auth-facebook" value="facebook" />
+                        <button className="bg-[#1877F2] text-white px-4 py-2 rounded-md">Facebook</button>
+                    </form>
+                    <form action="/api/auth/github" method="POST">
+                        <input type="hidden" name="auth-github" value="github" />
+                        <button className="bg-gray-700 text-white px-4 py-2 rounded-md">Github</button>
+                    </form>
+                </div>
             </div>
         </main>
     );
