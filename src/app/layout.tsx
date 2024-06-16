@@ -1,4 +1,3 @@
-import Header from "@/components/layout/Header";
 import type { Metadata } from "next";
 import { Onest } from "next/font/google";
 import { Providers } from "@/app/providers";

@@ -23,7 +23,7 @@ export default function FormPassword() {
         </button>
       }
       type={isVisible ? "text" : "password"}
-      className="max-w-xs pb-4"
+      className="max-w-xs pb-6"
     />
   );
 }

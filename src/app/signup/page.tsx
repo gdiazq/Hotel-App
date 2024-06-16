@@ -4,11 +4,14 @@ import { RegisterButton } from '@/components/ui/auth/RegisterButton';
 import  FormEmail from '@/components/ui/forms/FormEmail';
 import FormPassword from '@/components/ui/forms/FormPassword/FormPassword';
 import FormRepeatPassword from '@/components/ui/forms/FormPassword/FormRepeatPassword';
+import ButtonGoogle from '@/components/ui/button/ButtonGoogle';
+import ButtonFacebook from '@/components/ui/button/ButtonFacebook';
+import ButtonGithub from '@/components/ui/button/ButtonGithub';
 
 const SignUp = () => {
   return (
     <main className="flex flex-col w-full h-screen items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-900">
-      <div className="space-y-6 py-24 text-center">
+      <div className="space-y-6 py-24 text-center bg-gray-500 border-2 rounded-lg border-stone-800">
         <h1 className="text-5xl font-semibold text-white drop-shadow-md">
           🔐 Sign Up
         </h1>
@@ -25,16 +28,16 @@ const SignUp = () => {
         <div className="flex flex-row gap-x-4">
           <form action="/api/auth/google" method="POST">
             <input type="hidden" name="auth-google" value="google" />
-            <button className="bg-[#DB4437] text-white px-4 py-2 rounded-md">Google</button>
+            <ButtonGoogle/>
           </form>
           <form action="/api/auth/facebook" method="POST">
             <input type="hidden" name="auth-facebook" value="facebook" />
-            <button className="bg-[#1877F2] text-white px-4 py-2 rounded-md">Facebook</button>
+            <ButtonFacebook />
           </form>
           <form action="/api/auth/github" method="POST">
             <input type="hidden" name="auth-github" value="github" />
-            <button className="bg-gray-700 text-white px-4 py-2 rounded-md">Github</button>
-            </form>
+            <ButtonGithub />
+          </form>
         </div>
       </div>
     </main>
