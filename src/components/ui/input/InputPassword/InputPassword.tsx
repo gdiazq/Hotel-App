@@ -3,7 +3,7 @@ import {Input} from "@nextui-org/react";
 import EyeFilledIcon from "./EyeFilledIcon";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
 
-export default function FormPassword() {
+export default function InputPassword() {
   const [isVisible, setIsVisible] = React.useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -13,6 +13,7 @@ export default function FormPassword() {
       isRequired
       label="Password"
       placeholder="Enter your password"
+      id="password"
       endContent={
         <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
           {isVisible ? (
@@ -27,4 +28,3 @@ export default function FormPassword() {
     />
   );
 }
-

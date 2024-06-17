@@ -1,8 +1,6 @@
 'use client'
 
-import { LoginButton } from '@/components/ui/auth/LoginButton';
-import  FormEmail from '@/components/ui/input/InputEmail';
-import FormPassword from '@/components/ui/input/InputPassword/InputPassword';
+import { FormSignIn } from '@/components/ui/form/FormSignIn';
 import ButtonGoogle from '@/components/ui/button/ButtonGoogle';
 import ButtonFacebook from '@/components/ui/button/ButtonFacebook';
 import ButtonGithub from '@/components/ui/button/ButtonGithub';
@@ -18,11 +16,7 @@ const SignIn = () => {
                     Sign up for an account</a>
                 </p>
                 <div>
-                    <form>
-                        <FormEmail />
-                        <FormPassword />
-                        <LoginButton />
-                    </form>
+                    <FormSignIn />
                 </div>
                 <p className="text-xs text-white">Or with</p>
                 <div className="flex flex-row gap-x-4">
