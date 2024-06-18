@@ -9,7 +9,7 @@ export default function InputEmail() {
       id="email"
       label="Email"
       placeholder="email@example.com"
-      className="max-w-xs pb-4 mx-auto"
+      className="max-w-xs mx-auto"
     />
   );
 }

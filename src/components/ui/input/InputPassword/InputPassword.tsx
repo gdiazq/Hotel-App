@@ -24,7 +24,7 @@ export default function InputPassword() {
         </button>
       }
       type={isVisible ? "text" : "password"}
-      className="max-w-xs pb-6 mx-auto"
+      className="max-w-xs pt-2 mx-auto"
     />
   );
 }

@@ -8,8 +8,11 @@ export const LoginButton = () => {
     const router = useRouter();
 
     return (
-        <Button onClick={ () => router.push('/')} className="text-base bg-white cursor-pointer">
-            Login
-        </Button>
+        <div className="mt-4">
+            <Button type="submit" className="text-base bg-white cursor-pointer">
+                Login
+            </Button>
+        </div>
+
     )
 }
