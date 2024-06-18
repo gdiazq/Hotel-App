@@ -67,8 +67,8 @@ export const FormSignUp = () => {
                         </FormItem>
                     )}
                 />
-                <FormError message="Something went wrong!" />
-                <FormSuccess message="Register complete"  />
+                <FormError message="" />
+                <FormSuccess message=""  />
                 <RegisterButton />
             </form>
         </Form>
