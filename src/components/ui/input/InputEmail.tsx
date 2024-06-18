@@ -8,6 +8,7 @@ export default function InputEmail() {
       type="email"
       id="email"
       label="Email"
+      name="email"
       placeholder="email@example.com"
       className="max-w-xs mx-auto"
     />

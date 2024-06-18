@@ -13,6 +13,8 @@ export default function InputRepeatPassword() {
       isRequired
       label="Password confirmation"
       placeholder="Repeat your password"
+      id="repeatpassword"
+      name="repeatpassword"
       endContent={
         <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
           {isVisible ? (
@@ -23,7 +25,7 @@ export default function InputRepeatPassword() {
         </button>
       }
       type={isVisible ? "text" : "password"}
-      className="max-w-xs pb-6 mx-auto"
+      className="max-w-xs pt-2 mx-auto"
     />
   );
 }

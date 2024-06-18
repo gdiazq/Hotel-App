@@ -14,6 +14,7 @@ export default function InputPassword() {
       label="Password"
       placeholder="Enter your password"
       id="password"
+      name="password"
       endContent={
         <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
           {isVisible ? (

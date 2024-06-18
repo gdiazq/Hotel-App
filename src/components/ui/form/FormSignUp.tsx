@@ -17,6 +17,7 @@ export const FormSignUp = () => {
         defaultValues: {
           email: '',
           password: '',
+          repeatpassword: '',
         }
     })
 
@@ -48,7 +49,18 @@ export const FormSignUp = () => {
                         </FormItem>
                     )}
                 />
-                <InputRepeatPassword />
+                <FormField
+                    control={form.control}
+                    name="repeatpassword"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormControl>
+                                <InputRepeatPassword />
+                            </FormControl>
+                            <FormMessage/>
+                        </FormItem>
+                    )}
+                />
                 <RegisterButton />
             </form>
         </Form>

@@ -8,8 +8,10 @@ export const RegisterButton = () => {
     const router = useRouter();
 
     return (
-        <Button onClick={ () => router.push('/')} className="text-base bg-white cursor-pointer">
-            Sign Up
-        </Button>
+        <div className="mt-4">
+            <Button type="submit" className="text-base bg-white cursor-pointer">
+                Sign Up
+            </Button>
+        </div>
     )
 }
