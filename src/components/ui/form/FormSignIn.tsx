@@ -19,10 +19,14 @@ export const FormSignIn = () => {
         }
     })
 
+    const onSubmit = (values: z.infer<typeof LoginHotelSchema>) => {
+        console.log(values);
+    }
+
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(() => {})}>
+            <form onSubmit={form.handleSubmit(onSubmit)}>
                 <FormField
                     control={form.control}
                     name="email"
