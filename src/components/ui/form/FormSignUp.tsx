@@ -9,6 +9,8 @@ import { RegisterHotelSchema } from '@/schemas/signup';
 import  InputEmail from '@/components/ui/input/InputEmail';
 import InputPassword from '@/components/ui/input/InputPassword/InputPassword';
 import InputRepeatPassword from '@/components/ui/input/InputPassword/InputRepeatPassword';
+import { FormError } from '@/components/ui/form/formError';
+import { FormSuccess } from '@/components/ui/form/formSuccess';
 
 export const FormSignUp = () => {
 
@@ -65,6 +67,8 @@ export const FormSignUp = () => {
                         </FormItem>
                     )}
                 />
+                <FormError message="Something went wrong!" />
+                <FormSuccess message="Register complete"  />
                 <RegisterButton />
             </form>
         </Form>
