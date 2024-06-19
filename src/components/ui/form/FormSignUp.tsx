@@ -1,18 +1,20 @@
 'use client';
 
 import * as z from 'zod';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/shadcn/form'
 import { RegisterButton } from '@/components/ui/auth/RegisterButton';
 import { RegisterHotelSchema } from '@/schemas/signup';
-import  InputEmail from '@/components/ui/input/InputEmail';
-import InputPassword from '@/components/ui/input/InputPassword/InputPassword';
-import InputRepeatPassword from '@/components/ui/input/InputPassword/InputRepeatPassword';
+import { Input } from "@/components/shadcn/input";
 import { FormError } from '@/components/ui/form/formError';
 import { FormSuccess } from '@/components/ui/form/formSuccess';
+import { register } from '@/actions/register';
 
 export const FormSignUp = () => {
+    const [error, setError] = useState<string | undefined>("");
+    const [success, setSuccess] = useState<string | undefined>("");
 
     const form = useForm<z.infer<typeof RegisterHotelSchema>>({
         resolver: zodResolver(RegisterHotelSchema),
@@ -23,21 +25,40 @@ export const FormSignUp = () => {
         }
     })
 
-    const onSubmit = (values: z.infer<typeof RegisterHotelSchema>) => {
-        console.log(values);
+    const registerSubmit = (values: z.infer<typeof RegisterHotelSchema>) => {
+        setError("");
+        setSuccess("");
+        register(values)
+            .then((response) => {
+                if (response?.error) {
+                    form.reset();
+                    setError(response.error);
+                } 
+                if (response?.success){
+                    form.reset();
+                    setSuccess(response.success);
+                }
+            })
+            .catch(() => setError("Something went wrong!"));
     }
 
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
+            <form onSubmit={form.handleSubmit(registerSubmit)}>
                 <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
                         <FormItem>
+                            <label>Email</label>
                             <FormControl>
-                                <InputEmail />
+                                <Input
+                                    type="email"
+                                    placeholder="email@example.com"
+                                    className="max-w-xs mx-auto text-black"
+                                    {...field}
+                                />
                             </FormControl>
                             <FormMessage/>
                         </FormItem>
@@ -48,8 +69,14 @@ export const FormSignUp = () => {
                     name="password"
                     render={({ field }) => (
                         <FormItem>
+                            <label>Password</label>
                             <FormControl>
-                                <InputPassword />
+                                <Input
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    className="max-w-xs mx-auto text-black"
+                                    {...field}
+                                />
                             </FormControl>
                             <FormMessage/>
                         </FormItem>
@@ -60,8 +87,14 @@ export const FormSignUp = () => {
                     name="repeatpassword"
                     render={({ field }) => (
                         <FormItem>
+                            <label>Password Confirmation</label>
                             <FormControl>
-                                <InputRepeatPassword />
+                                <Input
+                                    type="password"
+                                    placeholder="Repeat your password"
+                                    className="max-w-xs pt-2 mx-auto text-black"
+                                    {...field}
+                                />
                             </FormControl>
                             <FormMessage/>
                         </FormItem>

@@ -4,11 +4,9 @@ import * as z from 'zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Form, FormControl, FormField, FormItem, FormMessage, FormLabel } from '@/components/shadcn/form'
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/shadcn/form'
 import { LoginHotelSchema } from '@/schemas/signin';
 import { Input } from "@/components/shadcn/input";
-import InputEmail from '@/components/ui/input/InputEmail';
-import InputPassword from '@/components/ui/input/InputPassword/InputPassword';
 import { LoginButton } from '@/components/ui/auth/LoginButton';
 import { FormError } from '@/components/ui/form/formError';
 import { FormSuccess } from '@/components/ui/form/formSuccess';
