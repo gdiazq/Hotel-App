@@ -1,6 +1,7 @@
 'use client'
 
-import { z } from 'zod';
+import * as z from 'zod';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/shadcn/form'
@@ -13,6 +14,9 @@ import { FormSuccess } from '@/components/ui/form/formSuccess';
 import { login } from '@/actions/login';
 
 export const FormSignIn = () => {
+    const [error, setError] = useState<string | undefined>("");
+    const [success, setSuccess] = useState<string | undefined>("");
+
     const form = useForm<z.infer<typeof LoginHotelSchema>>({
         resolver: zodResolver(LoginHotelSchema),
         defaultValues: {
@@ -22,7 +26,13 @@ export const FormSignIn = () => {
     })
 
     const onSubmit = (values: z.infer<typeof LoginHotelSchema>) => {
-        login(values);
+        setError("");
+        setSuccess("");
+        login(values)
+            .then((response) => {
+                setError(response.error);
+                setSuccess(response.success);
+            })
     }
 
     return (
@@ -52,8 +62,8 @@ export const FormSignIn = () => {
                         </FormItem>
                     )}
                 />
-                <FormError message="" />
-                <FormSuccess message=""/>
+                <FormError message={error} />
+                <FormSuccess message={success}/>
                 <LoginButton />
             </form>
         </Form>
