@@ -9,7 +9,7 @@ export const FormError = ({ message }: formErrorProps) => {
         return null;
     } else {
         return (
-            <div className="bg-red-100 p-3 rounded-md flex items-center mt-4 gap-x-2 text-sm text-red-600">
+            <div className="bg-red-400 p-3 rounded-md flex items-center mt-4 gap-x-2 max-w-xs mx-auto text-sm text-red-600">
                 <FaExclamationTriangle className="size-4" />
                 <p>{message}</p>
             </div>

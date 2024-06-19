@@ -9,7 +9,7 @@ export const FormSuccess = ({ message }: formSuccessProps) => {
         return null;
     } else {
         return (
-            <div className="bg-green-300 p-3 rounded-md flex items-center mt-4 gap-x-2 text-sm text-green-700">
+            <div className="bg-green-300 p-3 rounded-md flex items-center mt-4 gap-x-2 max-w-xs mx-auto text-sm text-green-700">
                 <CiCircleCheck className="size-4" />
                 <p>{message}</p>
             </div>

@@ -4,8 +4,9 @@ import * as z from 'zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/shadcn/form'
+import { Form, FormControl, FormField, FormItem, FormMessage, FormLabel } from '@/components/shadcn/form'
 import { LoginHotelSchema } from '@/schemas/signin';
+import { Input } from "@/components/shadcn/input";
 import InputEmail from '@/components/ui/input/InputEmail';
 import InputPassword from '@/components/ui/input/InputPassword/InputPassword';
 import { LoginButton } from '@/components/ui/auth/LoginButton';
@@ -25,43 +26,64 @@ export const FormSignIn = () => {
         }
     })
 
-    const onSubmit = (values: z.infer<typeof LoginHotelSchema>) => {
+    const loginSubmit = (values: z.infer<typeof LoginHotelSchema>) => {
         setError("");
         setSuccess("");
         login(values)
             .then((response) => {
-                setError(response.error);
-                setSuccess(response.success);
+                if (response?.error) {
+                    form.reset();
+                    setError(response.error);
+                } 
+                if (response?.success){
+                    form.reset();
+                    setSuccess(response.success);
+                }
             })
+            .catch(() => setError("Something went wrong!"));
     }
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
-                <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormControl>
-                                <InputEmail />
-                            </FormControl>
-                            <FormMessage/>
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="password"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormControl>
-                                <InputPassword />
-                            </FormControl>
-                            <FormMessage/>
-                        </FormItem>
-                    )}
-                />
+            <form method="post" onSubmit={form.handleSubmit(loginSubmit)} className="space-y-6">
+                <div className="space-y-4">
+                    <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                            <FormItem>
+                                <label>Email</label>
+                                <FormControl>
+                                    <Input
+                                        type="email"
+                                        placeholder="email@example.com"
+                                        className="max-w-xs mx-auto text-black"
+                                        {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="password"
+                        render={({ field }) => (
+                            <FormItem>
+                                <label>Password</label>
+                                <FormControl>
+                                    <Input
+                                        type="password"
+                                        placeholder="Enter your password"
+                                        className="max-w-xs pt-2 mx-auto text-black"
+                                        {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                    />
+                </div>
                 <FormError message={error} />
                 <FormSuccess message={success}/>
                 <LoginButton />
