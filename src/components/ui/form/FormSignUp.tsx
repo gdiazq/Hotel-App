@@ -45,7 +45,8 @@ export const FormSignUp = () => {
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(registerSubmit)}>
+            <form onSubmit={form.handleSubmit(registerSubmit)} className="space-y-6">
+                <div className="space-y-4">
                 <FormField
                     control={form.control}
                     name="email"
@@ -100,8 +101,9 @@ export const FormSignUp = () => {
                         </FormItem>
                     )}
                 />
-                <FormError message="" />
-                <FormSuccess message=""  />
+                </div>
+                <FormError message={error} />
+                <FormSuccess message={success}  />
                 <RegisterButton />
             </form>
         </Form>

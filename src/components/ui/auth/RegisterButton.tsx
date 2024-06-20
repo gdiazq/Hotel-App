@@ -10,7 +10,7 @@ export const RegisterButton = () => {
     return (
         <div className="mt-4">
             <Button type="submit" className="text-base bg-white cursor-pointer">
-                Sign Up
+                Create an account
             </Button>
         </div>
     )
