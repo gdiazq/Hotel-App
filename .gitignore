@@ -40,3 +40,6 @@ next-env.d.ts
 #git
 .git
 .gitignore
+
+###
+/prisma/DigiCertGlobalRootCA.crt.pem
