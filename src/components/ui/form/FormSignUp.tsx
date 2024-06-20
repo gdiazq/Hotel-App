@@ -19,9 +19,10 @@ export const FormSignUp = () => {
     const form = useForm<z.infer<typeof RegisterHotelSchema>>({
         resolver: zodResolver(RegisterHotelSchema),
         defaultValues: {
-          email: '',
-          password: '',
-          repeatpassword: '',
+            name: '',
+            email: '',
+            password: '',
+            repeatpassword: '',
         }
     })
 
@@ -47,6 +48,24 @@ export const FormSignUp = () => {
         <Form {...form}>
             <form onSubmit={form.handleSubmit(registerSubmit)} className="space-y-6">
                 <div className="space-y-4">
+                <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                        <FormItem>
+                            <label>Name</label>
+                            <FormControl>
+                                <Input
+                                    type="text"
+                                    placeholder="Jhon Doe"
+                                    className="max-w-xs mx-auto text-black"
+                                    {...field}
+                                />
+                            </FormControl>
+                            <FormMessage/>
+                        </FormItem>
+                    )}
+                />
                 <FormField
                     control={form.control}
                     name="email"
