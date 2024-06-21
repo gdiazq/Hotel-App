@@ -13,7 +13,7 @@ export const register = async (values: z.infer<typeof RegisterHotelSchema>) => {
 
     const { name, email, password, repeatpassword } = validatedFields.data;
     if (password !== repeatpassword) {
-        return { error: "Passwords do not match!" };
+        return { error: "Password do not match!" };
     }
     const hashedPassword = await bcrypt.hash(password, 10);
 
