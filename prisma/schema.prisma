@@ -9,8 +9,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlserver"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
 }
 
 model User {
@@ -20,7 +20,6 @@ model User {
   emailVerified DateTime?
   image         String?
   password      String?
-  repeatPassword String?
   accounts      Account[]
   sessions      Session[]
   // Optional for WebAuthn support
