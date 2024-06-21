@@ -1,9 +1,10 @@
 "use server";
 
 import { prisma } from '@/lib/prisma';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import * as z from 'zod';
 import { RegisterHotelSchema  } from '@/schemas/signup';
+import { getUserbyEmail } from '@/data/user';
 
 export const register = async (values: z.infer<typeof RegisterHotelSchema>) => {
     const validatedFields = RegisterHotelSchema.safeParse(values);
@@ -17,11 +18,7 @@ export const register = async (values: z.infer<typeof RegisterHotelSchema>) => {
     }
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const existingUser = await prisma.user.findUnique({
-        where: {
-            email
-        }
-    });
+    const existingUser = await getUserbyEmail(email);
 
     if (existingUser) {
         return { error: "User already exists!" };
