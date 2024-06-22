@@ -28,11 +28,11 @@ export const FormSignIn = () => {
         setError("");
         setSuccess("");
         login(values)
-            .then((response) => {
+            .then((response: { error: string; success?: string } | undefined) => {
                 if (response?.error) {
                     form.reset();
                     setError(response.error);
-                } 
+                }
                 if (response?.success){
                     form.reset();
                     setSuccess(response.success);
