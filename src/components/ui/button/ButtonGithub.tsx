@@ -2,14 +2,19 @@
 
 import React from "react";
 import { Button } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 import GithubIcon from "../icon/GithubIcon";
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 
 const ButtonGithub = () => {
-    const router = useRouter();
+    const onClick = (provider: "github") => {
+        signIn(provider, {
+            callbackUrl: DEFAULT_LOGIN_REDIRECT,
+        })
+    }
 
     return (
-        <Button className="bg-white text-black" onClick={ () => router.push('/api/auth/github')}>
+        <Button className="bg-white text-black" onClick={() => onClick("github")}>
             <GithubIcon />
             Github
         </Button>
