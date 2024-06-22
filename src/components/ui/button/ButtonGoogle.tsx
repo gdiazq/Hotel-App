@@ -2,14 +2,19 @@
 
 import React from "react";
 import { Button } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 import GoogleIcon from "../icon/GoogleIcon";
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 
 const ButtonGoogle = () => {
-    const router = useRouter();
+    const onClick = (provider: "google") => {
+        signIn(provider, {
+            callbackUrl: DEFAULT_LOGIN_REDIRECT,
+        })
+    }
 
     return (
-        <Button className="bg-white text-black" onClick={ () => router.push('/api/auth/google' )}>
+        <Button className="bg-white text-black" onClick={ () => onClick("google")}>
             <GoogleIcon />
             Google
         </Button>
