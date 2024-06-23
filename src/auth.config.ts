@@ -18,6 +18,11 @@ export default {
         clientId: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       }),
+      Google({
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      
+      }),
       Credentials({
         async authorize(credentials) {
           const validatedFields = LoginHotelSchema.safeParse(credentials)
