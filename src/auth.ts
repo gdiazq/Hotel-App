@@ -6,6 +6,10 @@ import { prisma } from "@/lib/prisma"
 import { UserRole } from "@prisma/client"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  pages: {
+    signIn: "/signin",
+    error: "/error",
+  },
   events: {
     async linkAccount({ user }) {
       await prisma.user.update({
