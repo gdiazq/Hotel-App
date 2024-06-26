@@ -30,4 +30,5 @@ export const login = async (values: z.infer<typeof LoginHotelSchema>) => {
         }
         throw error;
     }
+
 };

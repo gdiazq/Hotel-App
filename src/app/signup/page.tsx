@@ -34,6 +34,9 @@ const SignUp = () => {
           </form>
         </div>
       </div>
+      <div>
+        <p className="text-xs text-white"><a href="/">Volver al inicio</a></p>
+      </div>
     </main>
   );
 }
