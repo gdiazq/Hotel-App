@@ -5,6 +5,7 @@ import bcrypt from 'bcryptjs';
 import * as z from 'zod';
 import { RegisterHotelSchema  } from '@/schemas/signup';
 import { getUserbyEmail } from '@/data/user';
+import { generateVerificationToken } from '@/lib/tokens';
 
 export const register = async (values: z.infer<typeof RegisterHotelSchema>) => {
     const validatedFields = RegisterHotelSchema.safeParse(values);
@@ -31,5 +32,8 @@ export const register = async (values: z.infer<typeof RegisterHotelSchema>) => {
             password: hashedPassword
         }
     })
+
+    const verificationToken = await generateVerificationToken(email);
+
     return { success: "Register success" };
 }

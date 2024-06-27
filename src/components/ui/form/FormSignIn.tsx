@@ -3,8 +3,9 @@
 import * as z from 'zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useSearchParams }  from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/shadcn/form'
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/shadcn/form';
 import { LoginHotelSchema } from '@/schemas/signin';
 import { Input } from "@/components/shadcn/input";
 import { LoginButton } from '@/components/ui/auth/LoginButton';
@@ -13,6 +14,11 @@ import { FormSuccess } from '@/components/ui/form/formSuccess';
 import { login } from '@/actions/login';
 
 export const FormSignIn = () => {
+    const searchParams = useSearchParams();
+    const urlError = searchParams.get("error") === "OAuthAccountNotLinked"
+        ? "Email already in use in other provider!"
+        : "";
+
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
 
@@ -27,7 +33,7 @@ export const FormSignIn = () => {
     const loginSubmit = (values: z.infer<typeof LoginHotelSchema>) => {
         setError("");
         setSuccess("");
-        login('credentials', values)
+        login(values)
             .then((response: { error: string; success?: string } | undefined) => {
                 if (response?.error) {
                     form.reset();
@@ -82,7 +88,7 @@ export const FormSignIn = () => {
                         )}
                     />
                 </div>
-                <FormError message={error} />
+                <FormError message={error || urlError} />
                 <FormSuccess message={success}/>
                 <LoginButton />
             </form>
