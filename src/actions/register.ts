@@ -6,6 +6,7 @@ import * as z from 'zod';
 import { RegisterHotelSchema  } from '@/schemas/signup';
 import { getUserbyEmail } from '@/data/user';
 import { generateVerificationToken } from '@/lib/tokens';
+import { sendVerificationEmail } from '@/lib/mail';
 
 export const register = async (values: z.infer<typeof RegisterHotelSchema>) => {
     const validatedFields = RegisterHotelSchema.safeParse(values);
@@ -34,6 +35,7 @@ export const register = async (values: z.infer<typeof RegisterHotelSchema>) => {
     })
 
     const verificationToken = await generateVerificationToken(email);
+    await sendVerificationEmail(verificationToken.email, verificationToken.token);
 
     return { success: "Register success" };
 }
