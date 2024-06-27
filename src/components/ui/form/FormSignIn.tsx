@@ -27,7 +27,7 @@ export const FormSignIn = () => {
     const loginSubmit = (values: z.infer<typeof LoginHotelSchema>) => {
         setError("");
         setSuccess("");
-        login(values)
+        login('credentials', values)
             .then((response: { error: string; success?: string } | undefined) => {
                 if (response?.error) {
                     form.reset();
