@@ -1,17 +1,16 @@
-import { logout } from "@/actions/logout";
+import Logout from "@/actions/logout";
 import React from "react";
-import {Button} from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 
-const ButtonLogout = async () => {
-    
+const ButtonLogout = () => {
+    const onSubmit = async () => {
+        await Logout();
+    };
+
     return (
-        <form action = { async () => {
-            logout();
-        }}>
-            <Button className="bg-red-700 text-white">
-                Logout
-            </Button>
-        </form>
+        <Button className="bg-red-700 text-white" type="submit" onClick={onSubmit}>
+            Logout
+        </Button>
     );
 }
 
