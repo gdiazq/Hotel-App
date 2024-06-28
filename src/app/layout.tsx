@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 import { Onest } from "next/font/google";
 import { Providers } from "@/app/providers";
 import "./globals.css";
@@ -15,10 +16,12 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
   return (
     <html suppressHydrationWarning={true} lang="en">
       <body className={onest.className}>
-        <Providers>
-            {children}
-          {/* ?Footer */}
-        </Providers>
+        <SessionProvider>
+          <Providers>
+              {children}
+            {/* ?Footer */}
+          </Providers>
+        </SessionProvider>
       </body>
     </html>
   );

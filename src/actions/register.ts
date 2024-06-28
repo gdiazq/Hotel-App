@@ -37,5 +37,5 @@ export const register = async (values: z.infer<typeof RegisterHotelSchema>) => {
     const verificationToken = await generateVerificationToken(email);
     await sendVerificationEmail(verificationToken.email, verificationToken.token);
 
-    return { success: "Register success" };
+    return { success: "Email Sent" };
 }
