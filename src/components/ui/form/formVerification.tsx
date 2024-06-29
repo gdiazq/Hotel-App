@@ -6,7 +6,6 @@ import { useSearchParams, useRouter } from "next/navigation"
 import { FormError } from "@/components/ui/form/formError"
 import { FormSuccess } from "@/components/ui/form/formSuccess"
 import { newVerification } from "@/actions/verification"
-import { time } from "console"
 
 export function VerificationForm() {
     const searchParams = useSearchParams()

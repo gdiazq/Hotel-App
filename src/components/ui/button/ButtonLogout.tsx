@@ -1,10 +1,16 @@
 import Logout from "@/actions/logout";
 import React from "react";
 import { Button } from "@nextui-org/react";
+import { useRouter } from 'next/navigation'
+import { setConfig } from "next/config";
 
 const ButtonLogout = () => {
+    const router = useRouter()
     const onSubmit = async () => {
-        await Logout();
+        Logout();
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 3000);
     };
 
     return (
@@ -15,3 +21,4 @@ const ButtonLogout = () => {
 }
 
 export default ButtonLogout;
+

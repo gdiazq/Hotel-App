@@ -8,6 +8,7 @@ import { UserRole } from "@prisma/client"
 export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
     signIn: "/signin",
+    signOut: "/",
     error: "/error",
   },
   events: {
