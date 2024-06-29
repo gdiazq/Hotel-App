@@ -2,7 +2,6 @@ import Logout from "@/actions/logout";
 import React from "react";
 import { Button } from "@nextui-org/react";
 import { useRouter } from 'next/navigation'
-import { setConfig } from "next/config";
 
 const ButtonLogout = () => {
     const router = useRouter()
