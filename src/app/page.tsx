@@ -5,9 +5,11 @@ export default function Home() {
     <>
       <Header />
         <main className="p-4">
-          <h1 className="text-black dark:text-white">
-            Home
-          </h1>
+          <div className="space-y-6 py-24 text-center px-4">
+            <h1 className="text-5xl font-semibold text-white drop-shadow-md">
+              Authentication System with OAuth and NextAuth.js
+            </h1>
+          </div>
         </main>
     </>
   );
