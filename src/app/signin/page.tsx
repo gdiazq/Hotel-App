@@ -1,9 +1,11 @@
 'use client'
 
+import { Suspense } from 'react';
 import { FormSignIn } from '@/components/ui/form/FormSignIn';
 import ButtonGoogle from '@/components/ui/button/ButtonGoogle';
 import ButtonFacebook from '@/components/ui/button/ButtonFacebook';
 import ButtonGithub from '@/components/ui/button/ButtonGithub';
+import SearchParamsHandler from '../../actions/getparams';
 
 const SignIn = () => {
     return (
@@ -16,7 +18,11 @@ const SignIn = () => {
                     Sign up for an account</a>
                 </p>
                 <div>
-                    <FormSignIn />
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <SearchParamsHandler>
+                            {searchParams => <FormSignIn searchParams={searchParams} />}
+                        </SearchParamsHandler>
+                    </Suspense>
                 </div>
                 <p className="text-xs text-white">Or with</p>
                 <div className="flex flex-row gap-x-4">
