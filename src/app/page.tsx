@@ -11,6 +11,9 @@ export default function Home() {
             </h1>
             <p className="text-black dark:text-white">HelloHotel is the best application for search hotels, homes, and much more...</p>
           </div>
+          <div className="space-y-6 py-24 text-center px-4">
+            <p className="text-black dark:text-white">Get Started</p>
+          </div>
         </main>
     </>
   );
