@@ -13,19 +13,25 @@ const Navbar = () => {
     return (
         <Suspense>
             <nav className="flex items-center justify-center gap-x-5">
-            <ThemeSwitcher />
-            { status === "authenticated" ? (
-                <>
-                    <span className="text-gray-600">Hello, {session.user?.name}</span>
-                    <ButtonLogout />
-                </>
-            ) : status === "unauthenticated" ? (
+                <ThemeSwitcher />
+                <a href="#" className="text-black dark:text-white">Home</a>
+                <a href="#" className="text-black dark:text-white">Rooms</a>
+                <a href="#" className="text-black dark:text-white">About Us</a>
+                <a href="#" className="text-black dark:text-white">Contact</a>
+                { status === "authenticated" ? (
+                    <>
+                        <span className="text-black dark:text-white">Hello, {session.user?.name}</span>
+                        <ButtonLogout />
+                    </>
+                ) : status === "unauthenticated" ? (
                     <>
                         <ButtonLogin />
                         <ButtonSignUp />
                     </>
                 ) : status === "loading" ? (
-                    <BeatLoader />
+                    <>
+                        <BeatLoader />
+                    </>
                 ) : null}
             </nav>
         </Suspense>
